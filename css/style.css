@@ -45,6 +45,46 @@ h1 {
 }
 
 .photographer_section article img {
-    height: 200px;
-    width: 200px;
+ 
+}
+
+.photos_section{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+
+
+}
+
+.imagePhoto{
+width:80%;
+height:100%;
+object-fit: contain;
+
+
+}
+
+article a{
+    
+}
+
+.parent-image{
+    width:200px;
+    height:200px;
+    border-radius: 100%;
+    overflow: hidden;
+
+}
+
+.imgAvatar{
+    width:120%;
+    height:120%;
+    object-fit:cover;
+    object-position:bottom;
+    
+
+}
+
+.description{
+    text-align: center;
+
 }

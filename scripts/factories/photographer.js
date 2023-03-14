@@ -2,81 +2,88 @@
 
 
 
-function photographerFactory(data) {
+class PhotographerFactory{
+    constructor(name, id, city, country, tagline, price, portrait ){
     
-    const name = data.name;
-    const portrait = data.portrait;
-    const id = data.id;
-    const tagline = data.tagline;
-    const price = data.price;
-    const city = data.city;
-    const country = data.country;
+    this.name = name;
+    this.id = id;
+    this.city = city;
+    this.country = country;
+    this.tagline = tagline;
+    this.price = price;
+    this.portrait = portrait;
+    }
 
-    console.log ("photographerfactory", data);
-    const picture = `./assets/photographers/photographers-id/${portrait}`;
+    getUserCardDOM() {
+        
+        const picture = `./assets/photographers/photographers-id/${this.portrait}`;
 
-    function getUserCardDOM() {
         const article = document.createElement( 'article' );
         const aLien = document.createElement('a');
-        aLien.setAttribute("href", `./photographer.html?${id}`);
         const img = document.createElement( 'img' );
         const div = document.createElement("div");
         div.setAttribute("class", "parent-image");
         img.setAttribute("class", "imgAvatar");
         img.setAttribute("src", picture);
+        aLien.setAttribute("href", `./photographer.html?id=${this.id}`);
+
         const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+        h2.textContent = this.name;
         const description = document.createElement("p");
         description.setAttribute("class", "description");
-        description.innerHTML = `${city}, ${country} <br> ${tagline} <br> ${price}€/jour`;
+        description.innerHTML = `${this.city}, ${this.country} <br> ${this.tagline} <br> ${this.price}€/jour`;
+       
         div.appendChild(img);
         aLien.appendChild(div);
         article.appendChild(aLien);
         article.appendChild(h2);
         article.appendChild(description);
-        return (article);
+        return article;
     }
-    return { name, picture, id, getUserCardDOM }
-}
 
+    photoHeaderFactory(name, id, city, country, tagline, portrait) {
 
-function coupePrenom(name){
-    let i;
-    let temporaire;
-    for (i = name.length - 1; i>-1; i--){
-        if (name.charAt(i) ==" "){
-            break;
-        }
+        const header = document.createElement( 'article' );
+        const avatar = document.createElement( 'img' );
+        const div = document.createElement("div");
+        const description = document.createElement("div");
+        const paragraphe = document.createElement("p");
+        const h2 = document.createElement( 'h2' );
+
+        div.setAttribute("class", "parent-image");
+        avatar.setAttribute("class", "imgAvatar");
+
+        avatar.setAttribute("src", `./assets/photographers/photographers-id/${portrait}`);
+
+        description.setAttribute("class", "description");
+        paragraphe.textContent = `${city}, ${country}, ${tagline}`;
+
+        h2.textContent = name;
+        
+        description.appendChild(h2);
+        description.appendChild(paragraphe);
+        div.appendChild(avatar);
+        header.appendChild(description);
+        header.appendChild(div);
+        return header;
+
     }
-    
-    temporaire = name.toString().substring (0, i);
-    return temporaire;
-}
 
-function photoFactory(data, photographeName) {
-    
-    const urlImage = data.image;
-    const titre = data.title;
-    const name = photographeName.name;
-    const prenom = coupePrenom(name);
-    console.log("prenom", prenom);
+    getMediaDOM(id, photographerId, title, image, likes, date, price, name) {
+        const prenom = coupePrenom(name);
+        const imagePhoto = `./assets/images/${prenom}/${image}`;
 
-    console.log ("photographerfactory", data);
-    const imagePhoto = `./assets/images/${prenom}/${urlImage}`;
-
-    function getPhotoCardDOM() {
         const figure = document.createElement( "figure" );
         const figCaption = document.createElement( "figcaption");
         const img = document.createElement( 'img' );
         img.setAttribute("class", "imagePhoto");
         img.setAttribute("src", imagePhoto);
         const h2 = document.createElement( 'h2' );
-        h2.textContent = titre;
+        h2.textContent = title;
         figure.appendChild(img);
         figure.appendChild(figCaption);
         figCaption.appendChild(h2);
         return (figure);
     }
-    return { name, imagePhoto, getPhotoCardDOM }
 }
 

@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.14",
+    "sass": "^1.59.3"
+  },
+  "name": "front-end-fisheye",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/principal.scss:./css/style.css --style expanded"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nellylie/Front-End-Fisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nellylie/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/Nellylie/Front-End-Fisheye#readme"
+}

@@ -51,7 +51,8 @@ class PhotographerFactory{
 
         div.setAttribute("class", "parent-image");
         avatar.setAttribute("class", "imgAvatar");
-
+        header.setAttribute("class", "header__article");
+        
         avatar.setAttribute("src", `./assets/photographers/photographers-id/${portrait}`);
 
         description.setAttribute("class", "description");
@@ -75,8 +76,9 @@ class PhotographerFactory{
         const figure = document.createElement( "figure" );
         const figCaption = document.createElement( "figcaption");
 
+        figure.setAttribute("class", "portfolio__carte");
         const img = document.createElement( 'img' );
-        img.setAttribute("class", "imagePhoto");
+        img.setAttribute("class", "photo");
         img.setAttribute("src", imagePhoto);
         const h2 = document.createElement( 'h2' );
         h2.textContent = title;

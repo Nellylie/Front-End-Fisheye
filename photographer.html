@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact__button" onclick="displayModal()">Contactez-moi</button>
-      </div>
-      <div class="photos__section"></div>
 
-    </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    
-    <script src="scripts/pages/index.js"type="text/javascript"></script>
-    <script src="scripts/factories/functions.js" type="text/javascript"></script>
-    <script src="scripts/utils/contactForm.js" type="text/javascript"></script>
-    <script src="scripts/factories/photographer.js"type="text/javascript"></script>
-  </body>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+  </header>
+  <main id="main">
+    <div class="photograph-header">
+      <button class="contact__button" onclick="displayModal()">Contactez-moi</button>
+    </div>
+    <div>
+      <div class="populaire">Popularité</div>
+      <div class="date">Date</div>
+      <div class="titre">Titre</div>
+    </div>
+    <div class="photos__section"></div>
+
+  </main>
+  <div id="contact_modal">
+    <div class="modal">
+      <header>
+        <h2>Contactez-moi</h2>
+        <img src="assets/icons/close.svg" onclick="closeModal()" />
+      </header>
+      <form>
+        <div>
+          <label>Prénom</label>
+          <input />
+        </div>
+        <button class="contact_button">Envoyer</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="scripts/pages/index.js" type="text/javascript"></script>
+  <script src="scripts/factories/functions.js" type="text/javascript"></script>
+  <script src="scripts/factories/tri.js" type="text/javascript"></script>
+  <script src="scripts/utils/contactForm.js" type="text/javascript"></script>
+  <script src="scripts/factories/photographer.js" type="text/javascript"></script>
+</body>
+
 </html>

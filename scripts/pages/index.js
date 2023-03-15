@@ -30,9 +30,11 @@ async function displayData(photographers, medias) {
         photographersHeader.appendChild(userHeaderDom);
 
         const mediasSelection = medias.filter(media => media.photographerId == paramId);
+        
+        const triMedias = TriBouton(mediasSelection);
 
-        mediasSelection.map((media)=>{
-            const nomIdPhotographe = photographers.find((photographer) => photographer.id == paramId);
+        triMedias.map((media)=>{
+            const nomIdPhotographe = photographers.find((photographer) => photographer.id == paramId);            
             const nomPhotographe = nomIdPhotographe.name;
             const {id, photographerId, title, image, likes, date, price} = media;
             const photographerModel = new PhotographerFactory(name, id, city, country, tagline, portrait);

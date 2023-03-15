@@ -1,7 +1,6 @@
 
 
 
-
 class PhotographerFactory{
     constructor(name, id, city, country, tagline, price, portrait ){
     
@@ -75,6 +74,7 @@ class PhotographerFactory{
 
         const figure = document.createElement( "figure" );
         const figCaption = document.createElement( "figcaption");
+
         const img = document.createElement( 'img' );
         img.setAttribute("class", "imagePhoto");
         img.setAttribute("src", imagePhoto);
@@ -86,4 +86,6 @@ class PhotographerFactory{
         return (figure);
     }
 }
+
+
 

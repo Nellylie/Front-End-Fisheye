@@ -36,9 +36,9 @@ async function displayData(photographers, medias) {
         triMedias.map((media)=>{
             const nomIdPhotographe = photographers.find((photographer) => photographer.id == paramId);            
             const nomPhotographe = nomIdPhotographe.name;
-            const {id, photographerId, title, image, likes, date, price} = media;
+            const {id, photographerId, title, video, image, likes, date, price} = media;
             const photographerModel = new PhotographerFactory(name, id, city, country, tagline, portrait);
-            const userMediaDom = photographerModel.getMediaDOM(id, photographerId, title, image, likes, date, price, nomPhotographe);
+            const userMediaDom = photographerModel.getMediaDOM(id, photographerId, title, video, image, likes, date, price, nomPhotographe);
             mediasSection.appendChild(userMediaDom);
 
         })

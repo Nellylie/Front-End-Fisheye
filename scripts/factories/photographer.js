@@ -69,10 +69,11 @@ class PhotographerFactory{
 
     }
 
-    getMediaDOM(id, photographerId, title, image, likes, date, price, name) {
+    getMediaDOM(id, photographerId, title, video, image, likes, date, price, name) {
         const prenom = coupePrenom(name);
-        const imagePhoto = `./assets/images/${prenom}/${image}`;
-
+        const urlImage = reconnaitreMp4(image, video);
+        const imagePhoto = `./assets/images/${prenom}/${urlImage}`;
+        
         const figure = document.createElement( "figure" );
         const figCaption = document.createElement( "figcaption");
 

@@ -21,24 +21,11 @@ h1 {
   margin-left: 100px;
 }
 
-.photographer_section {
+.photographer-section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
-}
-
-.photographer_section article {
-  justify-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.photographer_section article h2 {
-  color: #D3573C;
-  font-size: 36px;
 }
 
 .imagePhoto {
@@ -52,6 +39,7 @@ h1 {
   height: 200px;
   border-radius: 100%;
   overflow: hidden;
+  margin: auto;
 }
 
 .imgAvatar {
@@ -61,27 +49,45 @@ h1 {
   object-position: bottom;
 }
 
-.description {
+.card__description {
   text-align: center;
 }
 
-.photos__section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 90%;
-  margin: auto;
+.description__name {
+  color: #D3573C;
+  font-size: 36px;
+  font-family: "DM Sans", sans-serif;
+  margin: 10px auto 5px auto;
 }
 
-.photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.description__localisation {
+  color: #901C1C;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.description__slogan {
+  font-weight: 400;
+  font-size: 10px;
+}
+
+.description__price {
+  color: #757575;
+  font-size: 9px;
+}
+
+.section__parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 95%;
+  margin: auto;
 }
 
 .portfolio__carte {
   width: 350px;
   height: 350px;
   overflow: hidden;
+  justify-self: center;
 }
 
 .selection {
@@ -92,8 +98,9 @@ h1 {
   display: none;
 }
 
-.contact_button {
-  font-size: 20px;
+.contact__button {
+  margin: auto;
+  font-size: 15pt;
   font-weight: bold;
   color: white;
   padding: 11px;
@@ -159,18 +166,168 @@ form input {
   border-radius: 5px;
 }
 
+.selection-style {
+  padding: 0;
+  margin: 0 20px;
+  border: 0px solid #ccc;
+  width: 200px;
+  height: 45px;
+  font-size: 15pt;
+  font-weight: 700;
+  border-radius: 3px;
+  color: white;
+  overflow: hidden;
+  background-color: #901C1C;
+  background: #901C1C;
+  position: relative;
+}
+
+.selection-style select {
+  font-size: 15pt;
+  color: white;
+  font-weight: 700;
+  padding: 10px 8px;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  background-color: #901C1C;
+  background-image: none;
+}
+
+.selection-style * {
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+}
+
+.select-style:after {
+  top: 50%;
+  left: 0;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgb(255, 255, 255);
+  border-top-color: #000000;
+  border-width: 5px;
+  margin-top: 2px;
+  z-index: 100;
+}
+
+.select-style select:focus {
+  outline: none;
+  inline-size: 0;
+}
+
+.portfolio__carte {
+  position: relative;
+  align-self: center;
+}
+
+.carte__photo {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  margin: auto;
+}
+
+.description__carte {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.carte__titre {
+  color: #901C1C;
+  font-size: 15pt;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.carte__ensemble-like {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.carte__likes {
+  margin: 5px;
+}
+
+.carte__like--bouton {
+  margin: 5px;
+}
+
+.fa-couleur {
+  color: #901C1C;
+}
+
+.ensemble__selection {
+  margin-left: 100px;
+  font-size: 18px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
 .photograph-header {
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
+  width: 90%;
+  margin: auto;
 }
 
-.header__article {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 50px;
+  width: 90%;
+  margin: auto;
+}
+
+.header__description {
+  width: auto;
+  margin-left: 0;
+}
+
+.header-description__slogan {
+  font-size: 23px;
+  color: #525252;
+  padding: 20px 0;
+}
+
+.header-description__localisation {
+  font-size: 24px;
+  color: #901C1C;
+}
+
+.header-description__name {
+  font-weight: 400;
+  font-size: 64px;
+  color: #D3573C;
+  padding: 0;
+  margin: 0;
+}
+
+.header__parent-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -74,4 +74,5 @@ class GalleryFactory {
 
         return (figure);
     }
+   
 }

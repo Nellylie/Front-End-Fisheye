@@ -27,23 +27,30 @@ async function displayData(photographers, media) {
 
 
 
-
         function triage(resultatMediaSelectionTri) {
 
+            
 
             let photosParents = document.createElement("div");
             photosParents.setAttribute("class", "section__parent");
-
+            let tableauSommeLikes = [];
             resultatMediaSelectionTri.map((media) => {
-                const { id, photographerId, title, video, image, likes, date, price } = media;
+                const { id, photographerId, title, video, image, likes, date } = media;
+                tableauSommeLikes.push(media.likes);
                 const galleryModel = new GalleryFactory(id, photographerId, title, video, image, likes, date, price, name);
                 const mediaDom = galleryModel.getMediaDOM();
                 photosParents.appendChild(mediaDom);
                 photosSection.appendChild(photosParents);
             }
+            
             )
-
+            const sommeLikes = CompteurLikes(tableauSommeLikes);
+            const etiquetteModel = new EtiquetteFactory(sommeLikes, price).getEtiquette();
+            photographersHeader.appendChild(etiquetteModel);
         }
+
+
+
 
         function recuperationMediaATrier(mediaSelection) {
             

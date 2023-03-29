@@ -170,6 +170,7 @@ align-self: center;
     height: 80%;
     object-fit: cover;
     margin:auto;
+    border-radius: 5px;
 
 }
 
@@ -183,7 +184,7 @@ align-self: center;
 .carte__titre{
     color:#901C1C;
     font-size: 15pt;
-    font-weight: 400;
+    font-weight: 600;
     white-space: nowrap;
 }
 .carte__ensemble-like{
@@ -192,7 +193,8 @@ align-self: center;
     justify-content: right;
     align-items: center;
     white-space: nowrap;
-   
+    color:#901C1C;
+    font-weight: 600;
 
 }
 
@@ -201,6 +203,7 @@ align-self: center;
 }
 .carte__like--bouton{
     margin:5px;
+    color: #901C1C;
 }
 .fa-couleur{
     color:#901C1C;
@@ -220,5 +223,25 @@ align-self: center;
     height:80%;
     object-fit: cover;
     overflow: hidden;
+    border-radius: 5px;
 
 }
+
+.etiquette{
+    position:fixed;
+    display:flex;
+    flex-direction: row;
+    height:30px;
+    background-color: #DB8876;
+    font-size: 26px;
+    font-weight: 600;
+    color:black;
+    z-index: 1;
+    padding:10px 20px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: space-between;
+    bottom:0;
+    right:0;
+    width:300px;    
+    }

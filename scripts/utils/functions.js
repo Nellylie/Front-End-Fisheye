@@ -33,3 +33,8 @@ function urlRecupere(urlLien){
    }
 }
 
+function CompteurLikes(likes){
+    let sommeLikes = 0;
+    likes.forEach((like)=>{sommeLikes += like});
+    return sommeLikes;
+}

@@ -20,7 +20,7 @@ async function displayData(photographers, media) {
         const photographerHeaderModel = new PhotographerHeaderFactory(name, id, city, country, tagline, price, portrait);
         const getHeadDOM = photographerHeaderModel.getProfilHeaderDOM();
         photographersHeader.appendChild(getHeadDOM);
-
+        modalContact(name);
         //pour les médias et leur ordre d'emplacement
         const mediasSelection = media.filter((photographer) => photographer.photographerId == paramId);
         recuperationMediaATrier(mediasSelection);

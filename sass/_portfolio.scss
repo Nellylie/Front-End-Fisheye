@@ -25,6 +25,14 @@
 
 #contact_modal {
     display: none;
+    background-color: rgba(255, 255, 255, 0.749);
+    top:0;
+    left:0;
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index: 20;
+
 }
 
 .contact__button {
@@ -44,28 +52,68 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 500px;
+    height:85%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    padding: 15px 55px 50px 55px;
+    margin: 20px auto;
+}
+
+.modal__erreur{
+    display:none;
+}
+
+.modal__succes{
+    display: none; 
+
 }
 
 .modal header {
+    display:flex;
     justify-content: space-between;
+    align-items: flex-start;
     width: 100%;
 }
 
-.modal header img {
-    cursor: pointer;
+
+.modal__contactez{
+
+    font-size: 35pt;
+    font-weight: 500;
+    color:black;
+    text-align: left;
+    padding:0;
+    margin:0 0 100px 0;
+
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+.modal__contactez h2{
+    padding:0;
+    margin:0;
+    font-size: 35pt;
+    font-weight: 500;
+    color:black;
+    text-align: left;
+    white-space: nowrap;
+
+}
+.form__ensemble{
+    margin:40px 0 20px 0;
+}
+#envoyer__button{
+display:flex;
+margin:auto 0;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+height: auto;
+width:auto;
+font-size: medium;
+padding:15px 40px;
+
 }
 
 form {
@@ -75,9 +123,9 @@ form {
     align-items: flex-start;
 }
 
-form label {
+.form__label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 26px;
 }
 
 form div {
@@ -90,9 +138,13 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
+    height: 40px;
     border: none;
     border-radius: 5px;
+}
+
+form input[name="Your message"]{
+    height:150px;
 }
 
 .selection-style {

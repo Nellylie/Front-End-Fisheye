@@ -36,15 +36,24 @@
   <div id="contact_modal">
     <div class="modal">
       <header>
-        <h2>Contactez-moi</h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <div class = "modal__contactez">Contactez-moi
+        <h2 class="modal__nom"></h2></div>
+        <div class="modal__quitter"><i class = "fa-solid fa-xmark fa-4x fa-color-white"></i> </div>
       </header>
       <form>
-        <div>
-          <label>Prénom</label>
-          <input />
+        <div class="form__ensemble">
+          <label for = "3" class = "form__label">Prénom</label>
+          <input id ="3" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "first name">
+          <label for = "5" class = "form__label">Nom</label>
+          <input id ="5" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "last name">
+          <label for = "7" class = "form__label">Email</label>
+          <input id ="7" type =  "text" minlength="2" class = "form__input--email" maxlength="50" name = "email">
+          <label for = "9" class = "form__label">Votre message</label>
+          <input id ="9" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "Your message">
         </div>
-        <button class="contact__button">Envoyer</button>
+        <div class = "modal__erreur">Vérifiez vos champs, ils comportent des erreurs</div>
+        <div class = "modal__succes">Votre message est envoyé, merci</div>
+        <div id = "envoyer__button" class="contact__button">Envoyer</div>
       </form>
     </div>
   </div>

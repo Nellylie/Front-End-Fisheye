@@ -38,3 +38,10 @@ function CompteurLikes(likes){
     likes.forEach((like)=>{sommeLikes += like});
     return sommeLikes;
 }
+
+function checkEmail(email){
+    return /^[a-zA-Z0-9._-]+\@[a-zA-Z0-9._-]+\.[a-zA-Z.]{2,15}$/g.test(email);
+}
+function checkString(text){
+    return /^([a-zA-Z]{2,500})+$/g.test(text);
+}

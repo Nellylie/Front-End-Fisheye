@@ -13,11 +13,9 @@ function coupePrenom(name){
     return temporaire;
 }
 
-function reconnaitreMp4(titreImage, titreVideo){
-    let remplacement;
-    if (titreVideo){
-    remplacement = titreVideo.replace(".mp4", ".jpg");
-    return remplacement;}
+function reconnaitreMp4(titreVideo, titreImage){
+    if (titreVideo !== undefined){
+    return titreVideo;}
     else {
         return titreImage;
     }

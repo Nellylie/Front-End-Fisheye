@@ -280,6 +280,13 @@ form input {
   white-space: nowrap;
 }
 
+.carte__video {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
 .photograph-header {
   background-color: #FAFAFA;
   height: 300px;

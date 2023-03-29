@@ -33,10 +33,19 @@ class GalleryFactory {
         const h2 = document.createElement('h2');
         h2.setAttribute("class", "carte__titre");
         like.setAttribute("class", "carte__likes");
-        ensembleLike.setAttribute("class", "carte__ensemble-like")
+        ensembleLike.setAttribute("class", "carte__ensemble-like");
         h2.textContent = this.title;
-        like.textContent = this.likes; 
-        likeButton.innerHTML = "<i class='fa-solid fa-heart fa-couleur'></i>";
+
+        like.textContent = this.likes;
+        likeButton.innerHTML = "<i class='fa-regular fa-heart'></i>";
+        let click = false;
+        likeButton.addEventListener("click", () =>{ 
+            (!click ? click = true : click = false); 
+            if (click) { like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart fa-couleur'></i>"} 
+            else {
+                like.innerHTML = `${this.likes} `;
+                likeButton.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>";
+            } });
         ensembleLike.appendChild(like);
         ensembleLike.appendChild(likeButton);
         figCaption.appendChild(h2);

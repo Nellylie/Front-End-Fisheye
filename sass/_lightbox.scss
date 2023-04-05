@@ -1,0 +1,55 @@
+
+.lightbox{
+background-color: rgba(255, 255, 255, 0.632);
+position:fixed;
+display: flex;
+justify-content: space-around;
+align-items: center;
+top:0;
+left:0;
+width:100%;
+height:100%;
+margin:auto;
+z-index: 10;
+}
+
+.lightbox figure{
+    display:flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin:auto;
+    align-items: center;
+
+
+}
+
+.lightbox figure figcaption{
+    width:70%;
+    display:block;
+    margin-left:0;
+    text-align: left;
+    font-weight: 700;
+    font-size: 20pt;
+    color: #901C1C;
+    
+}
+
+.lightbox__image{
+    margin:auto;
+    width:70%;
+    max-height:600px;
+    object-fit: contain;
+}
+.button-left{
+color: #901C1C;
+}
+.button-right{
+    color: #901C1C;
+
+}
+.button-close{
+    color: #901C1C;
+    position: absolute;
+    right:0;
+    top :0;
+}

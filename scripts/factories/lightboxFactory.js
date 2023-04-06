@@ -1,4 +1,4 @@
-class LightboxFactory {
+export class LightboxFactory {
   navigationLightbox () {
     const lightboxTableau = document.querySelectorAll('.portfolio__carte')
     const photoSelection = document.querySelectorAll('.carte__photo')

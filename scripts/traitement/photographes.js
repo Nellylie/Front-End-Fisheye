@@ -1,3 +1,5 @@
+import { PhotographerFactory } from '../factories/PhotographerFactory.js'
+
 async function getPhotographers () {
   const urlJson = await fetch('./data/photographers.json')
   const photographes = await urlJson.json()

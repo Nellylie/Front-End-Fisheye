@@ -1,5 +1,6 @@
 
-class GalleryFactory {
+import { coupePrenom, reconnaitreMp4 } from '../utils/functions.js'
+export class GalleryFactory {
   constructor (id, photographerId, title, video, image, likes, date, price, name) {
     this.id = id
     this.photographerId = photographerId
@@ -9,11 +10,11 @@ class GalleryFactory {
     this.likes = likes
     this.date = date
     this.price = price
-    this.name = name
+    this.nameTotal = name
   }
 
   getMediaDOM () {
-    const prenom = coupePrenom(this.name)
+    const prenom = coupePrenom(this.nameTotal)
     const urlImage = reconnaitreMp4(this.video, this.image)
     const imagePhoto = `./assets/images/${prenom}/${urlImage}`
 

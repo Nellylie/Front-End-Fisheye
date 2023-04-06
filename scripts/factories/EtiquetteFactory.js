@@ -1,4 +1,4 @@
-class EtiquetteFactory {
+export class EtiquetteFactory {
   constructor (sommeLikes, price) {
     this.sommeLikes = sommeLikes
     this.price = price

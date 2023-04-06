@@ -1,4 +1,6 @@
-class PhotographerHeaderFactory {
+import { displayModal } from '../utils/contactForm.js'
+
+export class PhotographerHeaderFactory {
   constructor (name, id, city, country, tagline, price, portrait) {
     this.name = name
     this.id = id

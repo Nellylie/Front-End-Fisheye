@@ -1,5 +1,5 @@
 
-class PhotographerFactory {
+export class PhotographerFactory {
   constructor (name, id, city, country, tagline, price, portrait) {
     this.name = name
     this.id = id

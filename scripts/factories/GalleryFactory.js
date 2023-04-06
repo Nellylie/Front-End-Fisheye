@@ -57,11 +57,11 @@ export class GalleryFactory {
       (!click ? click = true : click = false)
       if (click) {
         like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart fa-couleur'></i>"
-        document.querySelector('.etiquette__total').textContent = parseInt(document.querySelector('.etiquette__total').textContent) + 1
+        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) + 1 + "<i class='fa-solid fa-heart fa-couleur'></i>"
       } else {
         like.innerHTML = `${this.likes} `
         likeButton.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
-        document.querySelector('.etiquette__total').textContent = parseInt(document.querySelector('.etiquette__total').textContent) - 1
+        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) - 1 + "<i class='fa-solid fa-heart fa-couleur'></i>"
       }
     })
     ensembleLike.appendChild(like)

@@ -1,8 +1,7 @@
 import { urlRecupere } from '../utils/functions.js'
-import { gestionGallery, TriageDeMedias } from '../utils/tri.js'
 import { modalContact } from '../utils/contactForm.js'
 import { PhotographerHeaderFactory } from '../factories/PhotographerHeaderFactory.js'
-
+import { recuperationMediaATrier } from '../utils/tri.js'
 async function getPhotographers () {
   const urlJson = await fetch('./data/photographers.json')
   const photographesMedias = await urlJson.json()
@@ -17,7 +16,7 @@ async function displayData (photographers, media) {
   // pour l'en-tete
 
   if (paramId) {
-    const photographerSelection = photographers.find((photographer) => photographer.id == paramId)
+    const photographerSelection = photographers.find((photographer) => photographer.id === parseInt(paramId))
     const { name, id, city, country, tagline, price, portrait } = photographerSelection
     const photographerHeaderModel = new PhotographerHeaderFactory(name, id, city, country, tagline, price, portrait)
     const getHeadDOM = photographerHeaderModel.getProfilHeaderDOM()
@@ -25,39 +24,9 @@ async function displayData (photographers, media) {
     modalContact(name)
     console.log('origine', name, price)
     // pour les médias et leur ordre d'emplacement
-    const mediasSelection = media.filter((photographer) => photographer.photographerId == paramId)
+    const mediasSelection = media.filter((photographer) => photographer.photographerId === parseInt(paramId))
     recuperationMediaATrier(mediasSelection, price, name)
   }
-}
-
-function recuperationMediaATrier (mediaSelection, price, nameTotal) {
-  let resultatTri = new TriageDeMedias(mediaSelection).triLikeDecroissant()
-  gestionGallery(resultatTri, price, nameTotal)
-
-  const selection = document.querySelector('#selection-tri')
-
-  selection.addEventListener('change', () => {
-    if (selection.options[0].selected === true) {
-      if (document.querySelector('div.section__parent') !== null) {
-        document.querySelector('div.section__parent').remove()
-      } resultatTri = new TriageDeMedias(mediaSelection).triLikeDecroissant(); gestionGallery(resultatTri, price, nameTotal)
-    }
-  })
-
-  selection.addEventListener('change', () => {
-    if (selection.options[1].selected === true) {
-      if (document.querySelector('div.section__parent') !== null) {
-        document.querySelector('div.section__parent').remove()
-      } resultatTri = new TriageDeMedias(mediaSelection).triDateDecroissant(); gestionGallery(resultatTri, price, nameTotal)
-    }
-  })
-  selection.addEventListener('change', () => {
-    if (selection.options[2].selected === true) {
-      if (document.querySelector('div.section__parent') !== null) {
-        document.querySelector('div.section__parent').remove()
-      } resultatTri = new TriageDeMedias(mediaSelection).triAlphabetiqueCroissant(); gestionGallery(resultatTri, price, nameTotal)
-    }
-  })
 }
 
 async function init () {

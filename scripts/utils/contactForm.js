@@ -18,23 +18,40 @@ export function modalContact (name) {
   const messageSucces = document.querySelector('.modal__succes')
   const envoyerButton = document.querySelector('#envoyer__button')
 
-  const firstName = document.getElementById('3')
-  const lastName = document.getElementById('5')
-  const yourEmail = document.getElementById('7')
-  const yourMessage = document.getElementById('9')
+  const firstName = document.getElementById('input-3')
+  const lastName = document.getElementById('input-5')
+  const yourEmail = document.getElementById('input-7')
+  const yourMessage = document.getElementById('input-9')
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab' && document.hasFocus()) {
+      if (yourMessage.blur()) { envoyerButton.focus() }
+    }
+  })
 
   envoyerButton.addEventListener('click', () => {
-    if (
-      checkString(firstName.value) && checkString(lastName.value) && checkEmail(yourEmail.value) && checkString(yourMessage.value)) {
-      console.log(`Résumé de votre message : ${firstName.value} - ${lastName.value} - ${yourEmail.value} - Votre message : ${yourMessage.value}`)
-      messageSucces.style.display = 'block'
-      messageErreur.style.display = 'none'
-    } else {
-      messageErreur.style.display = 'block'
-      messageSucces.style.display = 'none'
+    verificationConfirmationMessage(firstName, lastName, yourEmail, yourMessage, messageSucces, messageErreur)
+  })
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.hasFocus()) {
+      document.querySelector('#header-principal').focus()
+      closeModal()
     }
   })
 
   placeNom.innerHTML = `${name}`
   modalQuitter.addEventListener('click', closeModal)
+}
+
+function verificationConfirmationMessage (firstName, lastName, yourEmail, yourMessage, messageSucces, messageErreur) {
+  if (
+    checkString(firstName.value) && checkString(lastName.value) && checkEmail(yourEmail.value) && checkString(yourMessage.value)) {
+    console.log(`Résumé de votre message : ${firstName.value} - ${lastName.value} - ${yourEmail.value} - Votre message : ${yourMessage.value}`)
+    messageSucces.style.visibility = 'visible'
+    messageErreur.style.visibility = 'hidden'
+  } else {
+    messageErreur.style.visibility = 'visible'
+    messageSucces.style.visibility = 'hidden'
+  }
 }

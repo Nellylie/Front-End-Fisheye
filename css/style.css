@@ -133,11 +133,17 @@ h1 {
 }
 
 .modal__erreur {
-  display: none;
+  position: absolute;
+  margin: auto;
+  bottom: 40px;
+  visibility: hidden;
 }
 
 .modal__succes {
-  display: none;
+  position: absolute;
+  margin: auto;
+  bottom: 40px;
+  visibility: hidden;
 }
 
 .modal header {

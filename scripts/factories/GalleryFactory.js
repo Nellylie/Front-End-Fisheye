@@ -28,7 +28,9 @@ export class GalleryFactory {
     const videoSource = document.createElement('source')
 
     likeButton.setAttribute('class', 'carte__likeButton')
+    likeButton.setAttribute('tabindex', 0)
     figure.setAttribute('class', 'portfolio__carte')
+    figure.setAttribute('tabindex', 0)
     figCaption.setAttribute('class', 'description__carte')
 
     if (this.video !== undefined) {
@@ -56,14 +58,29 @@ export class GalleryFactory {
     likeButton.addEventListener('click', () => {
       (!click ? click = true : click = false)
       if (click) {
-        like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart fa-couleur'></i>"
-        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) + 1 + "<i class='fa-solid fa-heart fa-couleur'></i>"
+        like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart'></i>"
+        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) + 1 + "<i class='fa-solid fa-heart'></i>"
       } else {
         like.innerHTML = `${this.likes} `
         likeButton.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
-        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) - 1 + "<i class='fa-solid fa-heart fa-couleur'></i>"
+        document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) - 1 + "<i class='fa-solid fa-heart'></i>"
       }
     })
+
+    likeButton.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && document.hasFocus() && document.querySelector('.carte__likeButton:focus') && document.querySelector('.portfolio__carte:focus') === null) {
+        (!click ? click = true : click = false)
+        if (click) {
+          like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart'></i>"
+          document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) + 1 + "<i class='fa-solid fa-heart'></i>"
+        } else {
+          like.innerHTML = `${this.likes} `
+          likeButton.innerHTML = "<i class='fa-regular fa-heart fa-heart-margin'></i>"
+          document.querySelector('.etiquette__total').innerHTML = parseInt(document.querySelector('.etiquette__total').textContent) - 1 + "<i class='fa-solid fa-heart'></i>"
+        }
+      }
+    })
+
     ensembleLike.appendChild(like)
     ensembleLike.appendChild(likeButton)
     figCaption.appendChild(h2)

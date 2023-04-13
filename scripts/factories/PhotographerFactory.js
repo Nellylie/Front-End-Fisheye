@@ -24,6 +24,8 @@ export class PhotographerFactory {
     const h2 = document.createElement('h2')
 
     card.setAttribute('class', 'card')
+    card.setAttribute('tabindex', '0')
+    card.setAttribute('id', this.id)
     aLien.setAttribute('class', 'imgAvatar')
     img.setAttribute('class', 'imgAvatar')
     parentImage.setAttribute('class', 'parent-image')
@@ -40,6 +42,14 @@ export class PhotographerFactory {
     localisation.textContent = `${this.city}, ${this.country}`
     slogan.textContent = `${this.tagline}`
     price.textContent = `${this.price}€/jour`
+
+    document.addEventListener('keyup', (e) => {
+      const toucheCode = e.key
+      if (toucheCode === 'Enter' && document.hasFocus && document.getElementById(`${this.id}:focus`) !== null) {
+        window.location.href = `./photos.html?id=${this.id}`
+        window.location.reload()
+      }
+    })
 
     description.appendChild(h2)
     description.appendChild(localisation)

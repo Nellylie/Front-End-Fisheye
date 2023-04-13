@@ -1,8 +1,9 @@
 
-import { LightboxFactory } from '../factories/lightboxFactory.js'
+import { Lightbox } from './lightbox.js'
 import { GalleryFactory } from '../factories/GalleryFactory.js'
 import { EtiquetteFactory } from '../factories/EtiquetteFactory.js'
 import { CompteurLikes } from '../utils/functions.js'
+
 export class TriageDeMedias {
   constructor (tableau) {
     this.tableau = tableau
@@ -49,7 +50,43 @@ export function gestionGallery (resultatMediaSelectionTri, price, nameTotal) {
 
   )
   const sommeLikes = CompteurLikes(tableauSommeLikes)
-  const etiquetteModel = new EtiquetteFactory(sommeLikes, price).getEtiquette()
-  photographersHeader.appendChild(etiquetteModel)
-  new LightboxFactory().navigationLightbox()
+  if (document.querySelector('.etiquette') === null) {
+    const etiquetteModel = new EtiquetteFactory(sommeLikes, price).getEtiquette()
+    photographersHeader.appendChild(etiquetteModel)
+  } else {
+    document.querySelector('.etiquette').remove()
+    const etiquetteModel = new EtiquetteFactory(sommeLikes, price).getEtiquette()
+    photographersHeader.appendChild(etiquetteModel)
+  }
+  new Lightbox().navigationLightbox()
+}
+
+export function recuperationMediaATrier (mediaSelection, price, nameTotal) {
+  let resultatTri = new TriageDeMedias(mediaSelection).triLikeDecroissant()
+  gestionGallery(resultatTri, price, nameTotal)
+
+  const selection = document.querySelector('#selection-tri')
+
+  selection.addEventListener('change', () => {
+    if (selection.options[0].selected === true) {
+      if (document.querySelector('div.section__parent') !== null) {
+        document.querySelector('div.section__parent').remove()
+      } resultatTri = new TriageDeMedias(mediaSelection).triLikeDecroissant(); gestionGallery(resultatTri, price, nameTotal)
+    }
+  })
+
+  selection.addEventListener('change', () => {
+    if (selection.options[1].selected === true) {
+      if (document.querySelector('div.section__parent') !== null) {
+        document.querySelector('div.section__parent').remove()
+      } resultatTri = new TriageDeMedias(mediaSelection).triDateDecroissant(); gestionGallery(resultatTri, price, nameTotal)
+    }
+  })
+  selection.addEventListener('change', () => {
+    if (selection.options[2].selected === true) {
+      if (document.querySelector('div.section__parent') !== null) {
+        document.querySelector('div.section__parent').remove()
+      } resultatTri = new TriageDeMedias(mediaSelection).triAlphabetiqueCroissant(); gestionGallery(resultatTri, price, nameTotal)
+    }
+  })
 }

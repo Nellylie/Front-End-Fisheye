@@ -14,7 +14,7 @@
 
 <body>
   <header>
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
+    <a href="index.html"><img src="assets/images/logo.png" tabindex ="0" class="logo"  id = "header-principal"/></a>
   </header>
   <main id="main">
     <div class="photograph-header">
@@ -38,22 +38,22 @@
       <header>
         <div class = "modal__contactez">Contactez-moi
         <h2 class="modal__nom"></h2></div>
-        <div class="modal__quitter"><i class = "fa-solid fa-xmark fa-4x fa-color-white"></i> </div>
+        <div class="modal__quitter" tabindex = "0"><i class = "fa-solid fa-xmark fa-4x fa-color-white"></i> </div>
       </header>
       <form>
         <div class="form__ensemble">
-          <label for = "3" class = "form__label">Prénom</label>
-          <input id ="3" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "first name">
-          <label for = "5" class = "form__label">Nom</label>
-          <input id ="5" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "last name">
-          <label for = "7" class = "form__label">Email</label>
-          <input id ="7" type =  "text" minlength="2" class = "form__input--email" maxlength="50" name = "email">
-          <label for = "9" class = "form__label">Votre message</label>
-          <input id ="9" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "Your message">
+          <label for = "first name" class = "form__label">Prénom</label>
+          <input id ="input-3" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "first name">
+          <label for = "input-5" class = "form__label">Nom</label>
+          <input id ="input-5" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "last name">
+          <label for = "input-7" class = "form__label">Email</label>
+          <input id ="input-7" type =  "text" minlength="2" class = "form__input--email" maxlength="50" name = "email">
+          <label for = "input-9" class = "form__label">Votre message</label>
+          <input id ="input-9" type =  "text" minlength="2" class = "form__input" maxlength="50" name = "Your message">
         </div>
         <div class = "modal__erreur">Vérifiez vos champs, ils comportent des erreurs</div>
         <div class = "modal__succes">Votre message est envoyé, merci</div>
-        <div id = "envoyer__button" class="contact__button">Envoyer</div>
+        <div id = "envoyer__button" class="contact__button" tabindex = "0">Envoyer</div>
       </form>
     </div>
   </div>

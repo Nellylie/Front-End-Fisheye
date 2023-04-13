@@ -39,7 +39,10 @@ export class PhotographerHeaderFactory {
     img.setAttribute('src', `${picture}`)
 
     contact.textContent = 'Contactez-moi'
-    contact.addEventListener('click', displayModal)
+    contact.addEventListener('click', () => {
+      displayModal()
+      document.getElementById('input-3').focus()
+    })
     h1.textContent = this.name
     localisation.textContent = `${this.city}, ${this.country}`
     slogan.textContent = `${this.tagline}`

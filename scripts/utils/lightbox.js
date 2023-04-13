@@ -19,13 +19,13 @@ export class Lightbox {
     document.addEventListener('keydown', (e) => {
       const keyCode = e.key
       if (keyCode === 'Enter' && document.hasFocus() && document.querySelector('.contact__button:focus') === null) {
-        this.affichageDynamique(lightboxTableau)
+        const photoIndex = document.querySelector('.portfolio__carte:focus').getAttribute('id')
+        this.affichageDynamique(photoIndex, lightboxTableau)
       }
     })
   }
 
-  affichageDynamique (lightboxTableau) {
-    const photoIndex = document.querySelector('.portfolio__carte:focus').id
+  affichageDynamique (photoIndex, lightboxTableau) {
     if (document.querySelector('div.lightbox') === null) {
       this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
     } else {
@@ -101,10 +101,10 @@ export class Lightbox {
     document.addEventListener('keydown', (e) => {
       const keyCode = e.key
       if (keyCode === 'ArrowRight') {
-        if (indexPhoto < parentPhoto.length - 1) { indexPhoto++ } else { indexPhoto = -1; indexPhoto++ }
+        if (indexPhoto <= parentPhoto.length) { indexPhoto++ } else { indexPhoto = 0; indexPhoto++ }
         this.suivanteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
       } else if (keyCode === 'ArrowLeft') {
-        if (indexPhoto > 1) { indexPhoto-- } else { indexPhoto = parentPhoto.length; indexPhoto-- }
+        if (indexPhoto > 0) { indexPhoto-- } else { indexPhoto = parentPhoto.length; indexPhoto-- }
         this.precedenteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
       } else if (keyCode === 'Escape' && document.hasFocus()) {
         document.querySelector('div.lightbox').style.display = 'none'

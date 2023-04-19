@@ -5,7 +5,7 @@ export class Lightbox {
     const photoSelection = document.querySelectorAll('.carte__photo')
     // const buttonClose = document.querySelector('.button-close')
     lightboxTableau.forEach((photo, index, parentPhoto) => {
-      document.querySelector('.portfolio__carte').setAttribute('id', index)
+      photo.setAttribute('id', index)
       photoSelection[index].addEventListener('click', () => {
         if (document.querySelector('div.lightbox') === null) {
           this.affichageIndividuelPhoto(index, parentPhoto)
@@ -16,22 +16,19 @@ export class Lightbox {
       })
     })
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keyup', (e) => {
       const keyCode = e.key
       if (keyCode === 'Enter' && document.hasFocus() && document.querySelector('.contact__button:focus') === null) {
-        const photoIndex = document.querySelector('.portfolio__carte:focus').getAttribute('id')
-        this.affichageDynamique(photoIndex, lightboxTableau)
+        const photoIndex = parseInt(document.querySelector('.portfolio__carte:focus').getAttribute('id'))
+        console.log(photoIndex)
+        if (document.querySelector('div.lightbox') === null) {
+          this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
+        } else {
+          document.querySelector('div.lightbox').remove()
+          this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
+        }
       }
     })
-  }
-
-  affichageDynamique (photoIndex, lightboxTableau) {
-    if (document.querySelector('div.lightbox') === null) {
-      this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
-    } else {
-      document.querySelector('div.lightbox').remove()
-      this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
-    }
   }
 
   affichageIndividuelPhoto (index, parentPhoto) {
@@ -68,40 +65,45 @@ export class Lightbox {
     imageAffiche.setAttribute('class', 'lightbox__image')
 
     const imgSrc = document.querySelectorAll('.carte__photo')
+    const titrePhotoTableau = document.querySelectorAll('.carte__titre')
+    const titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
+
     if (imgSrc[indexPhoto].getAttribute('src') !== null) {
       videoAffiche.remove()
+      imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
+      imageAffiche.setAttribute('aria-label', titrePhotoContenu)
       imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
       figureImage.appendChild(imageAffiche)
     } else {
       imageAffiche.remove()
       const videoSrc = imgSrc[indexPhoto].querySelector('source').getAttribute('src')
       videoSource.setAttribute('src', videoSrc)
+      videoAffiche.setAttribute('aria-label', titrePhotoContenu)
+      videoAffiche.setAttribute('aria-description', `une video titrée : ${titrePhotoContenu}`)
       videoAffiche.setAttribute('controls', true)
       videoAffiche.setAttribute('width', '800px')
       videoSource.setAttribute('type', 'video/mp4')
       figureImage.appendChild(videoAffiche)
     }
 
-    const titrePhotoTableau = document.querySelectorAll('.carte__titre')
-    const titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
-
     buttonClose.addEventListener('click', () => {
       document.querySelector('div.lightbox').style.display = 'none'
+    })
+
+    buttonRight.addEventListener('click', () => {
+      if (indexPhoto < parentPhoto.length - 1) { indexPhoto++ } else { indexPhoto = -1; indexPhoto++ }
+      this.suivanteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
     })
 
     buttonLeft.addEventListener('click', () => {
       if (indexPhoto > 0) { indexPhoto-- } else { indexPhoto = parentPhoto.length; indexPhoto-- }
       this.precedenteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
     })
-    buttonRight.addEventListener('click', () => {
-      if (indexPhoto <= parentPhoto.length) { indexPhoto++ } else { indexPhoto = 0; indexPhoto++ }
-      this.suivanteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
-    })
 
     document.addEventListener('keydown', (e) => {
       const keyCode = e.key
       if (keyCode === 'ArrowRight') {
-        if (indexPhoto <= parentPhoto.length) { indexPhoto++ } else { indexPhoto = 0; indexPhoto++ }
+        if (indexPhoto < parentPhoto.length - 1) { indexPhoto++ } else { indexPhoto = -1; indexPhoto++ }
         this.suivanteImage(indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende)
       } else if (keyCode === 'ArrowLeft') {
         if (indexPhoto > 0) { indexPhoto-- } else { indexPhoto = parentPhoto.length; indexPhoto-- }
@@ -120,41 +122,51 @@ export class Lightbox {
 
   precedenteImage (indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende) {
     const imgSrc = document.querySelectorAll('.carte__photo')
+    titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
+    figureLegende.textContent = titrePhotoContenu
+    figureLegende.setAttribute('tabindex', '0')
+    figureLegende.focus()
     if (imgSrc[indexPhoto].getAttribute('src') !== null) {
       videoAffiche.remove()
       imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
+      imageAffiche.setAttribute('aria-label', titrePhotoContenu)
+      imageAffiche.setAttribute('aria-description', `une photographie titrée : ${titrePhotoContenu}`)
       figureImage.appendChild(imageAffiche)
     } else {
       imageAffiche.remove()
       const videoSrc = imgSrc[indexPhoto].querySelector('source').getAttribute('src')
       videoSource.setAttribute('src', videoSrc)
+      videoAffiche.setAttribute('aria-label', titrePhotoContenu)
+      videoAffiche.setAttribute('aria-description', `une video titrée : ${titrePhotoContenu}`)
       videoAffiche.setAttribute('controls', true)
       videoAffiche.setAttribute('width', '800px')
       videoSource.setAttribute('type', 'video/mp4')
       figureImage.appendChild(videoAffiche)
     }
-
-    titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
-    figureLegende.textContent = titrePhotoContenu
   }
 
   suivanteImage (indexPhoto, videoAffiche, imageAffiche, figureImage, videoSource, titrePhotoContenu, titrePhotoTableau, figureLegende) {
     const imgSrc = document.querySelectorAll('.carte__photo')
+    titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
+    figureLegende.textContent = titrePhotoContenu
+    figureLegende.setAttribute('tabindex', '0')
+    figureLegende.focus()
     if (imgSrc[indexPhoto].getAttribute('src') !== null) {
       videoAffiche.remove()
       imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
+      imageAffiche.setAttribute('aria-label', titrePhotoContenu)
+      imageAffiche.setAttribute('aria-description', `une photographie titrée : ${titrePhotoContenu}`)
       figureImage.appendChild(imageAffiche)
     } else {
       imageAffiche.remove()
       const videoSrc = imgSrc[indexPhoto].querySelector('source').getAttribute('src')
       videoSource.setAttribute('src', videoSrc)
+      videoAffiche.setAttribute('aria-label', titrePhotoContenu)
+      videoAffiche.setAttribute('aria-description', `une video titrée : ${titrePhotoContenu}`)
       videoAffiche.setAttribute('controls', true)
       videoAffiche.setAttribute('width', '800px')
       videoSource.setAttribute('type', 'video/mp4')
       figureImage.appendChild(videoAffiche)
     }
-
-    titrePhotoContenu = titrePhotoTableau[indexPhoto].textContent
-    figureLegende.textContent = titrePhotoContenu
   }
 }

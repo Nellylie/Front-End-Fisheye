@@ -24,10 +24,12 @@ export class PhotographerFactory {
     const h2 = document.createElement('h2')
 
     card.setAttribute('class', 'card')
-    card.setAttribute('tabindex', '0')
     card.setAttribute('id', this.id)
     aLien.setAttribute('class', 'imgAvatar')
     img.setAttribute('class', 'imgAvatar')
+    img.setAttribute('tabindex', '0')
+    img.setAttribute('aria-label', this.name)
+    img.setAttribute('aria-description', `un photographie avec ${this.id}`)
     parentImage.setAttribute('class', 'parent-image')
     description.setAttribute('class', 'card__description')
     slogan.setAttribute('class', 'description__slogan')

@@ -37,12 +37,16 @@ export class GalleryFactory {
       videoBalise.setAttribute('class', 'carte__photo')
       videoBalise.setAttribute('width', '200px')
       videoSource.setAttribute('src', imagePhoto)
+      videoBalise.setAttribute('aria-label', this.title)
+      videoBalise.setAttribute('aria-description', `une video titrée : ${this.title}`)
       videoSource.setAttribute('type', 'video/mp4')
       videoBalise.appendChild(videoSource)
       figure.appendChild(videoBalise)
     } else {
       img.setAttribute('class', 'carte__photo')
       img.setAttribute('src', imagePhoto)
+      img.setAttribute('aria-label', this.title)
+      img.setAttribute('aria-description', `une photographie titrée : ${this.title}`)
       figure.appendChild(img)
     }
 

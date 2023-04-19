@@ -16,11 +16,13 @@ export class Lightbox {
       })
     })
 
-    document.addEventListener('keyup', (e) => {
+    document.addEventListener('keydown', (e) => {
       const keyCode = e.key
-      if (keyCode === 'Enter' && document.hasFocus() && document.querySelector('.contact__button:focus') === null) {
-        const photoIndex = parseInt(document.querySelector('.portfolio__carte:focus').getAttribute('id'))
-        console.log(photoIndex)
+      if (keyCode === 'Enter' && document.hasFocus() && document.querySelector('.contact__button:focus') === null && document.querySelector('select:focus') === null) {
+        let photoIndex
+        if (document.querySelector('.portfolio__carte:focus') !== null) {
+          photoIndex = parseInt(document.querySelector('.portfolio__carte:focus').getAttribute('id'))
+        }
         if (document.querySelector('div.lightbox') === null) {
           this.affichageIndividuelPhoto(photoIndex, lightboxTableau)
         } else {

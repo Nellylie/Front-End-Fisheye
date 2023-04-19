@@ -1,5 +1,5 @@
 import { displayModal } from '../utils/contactForm.js'
-
+// factory pour construire le header de chaque photographe
 export class PhotographerHeaderFactory {
   constructor (name, id, city, country, tagline, price, portrait) {
     this.name = name
@@ -39,6 +39,7 @@ export class PhotographerHeaderFactory {
     img.setAttribute('src', `${picture}`)
 
     contact.textContent = 'Contactez-moi'
+    // gère l'affichage de la modale au click
     contact.addEventListener('click', () => {
       displayModal()
       document.getElementById('input-3').focus()
@@ -57,6 +58,7 @@ export class PhotographerHeaderFactory {
     header.appendChild(contact)
     header.appendChild(parentImage)
 
+    // retourne la balise finale, l'objet est créé dans le fichier medias.js
     return (header)
   }
 }

@@ -1,4 +1,4 @@
-
+// factory pour construire la vignette de chaque photographe
 export class PhotographerFactory {
   constructor (name, id, city, country, tagline, price, portrait) {
     this.name = name
@@ -45,7 +45,9 @@ export class PhotographerFactory {
     slogan.textContent = `${this.tagline}`
     price.textContent = `${this.price}€/jour`
 
-    document.addEventListener('keyup', (e) => {
+    // écouteur d'évèvenement pour la touche Enter. Elle permet de transferer l'id du photographe selectionné
+    // à l'url de la barre d'adresse
+    document.addEventListener('keydown', (e) => {
       const toucheCode = e.key
       if (toucheCode === 'Enter' && document.hasFocus && document.getElementById(`${this.id}:focus`) !== null) {
         window.location.href = `./photos.html?id=${this.id}`

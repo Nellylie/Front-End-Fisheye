@@ -1,3 +1,6 @@
+// fonction utilitaire
+// pour récuperer le prenom et chasser le nom
+// la fonction coupe avec substring apres avoir rencontré un espace
 export function coupePrenom (nameTotal) {
   let i
   for (i = nameTotal.length - 1; i > -1; i--) {
@@ -27,7 +30,10 @@ export function urlRecupere (urlLien) {
     return false
   }
 }
-
+// utilisée pour compter les likes,
+// cette fonction prend en argument un tableau, réalise une boucle, et incremente
+// la variable avec elle-meme et le like rencontré pour réaliser un total
+// qui est retourné
 export function CompteurLikes (likes) {
   let sommeLikes = 0
   likes.forEach((like) => { sommeLikes += like })

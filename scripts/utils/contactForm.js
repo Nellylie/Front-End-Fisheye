@@ -23,6 +23,7 @@ export function modalContact (name) {
   const yourEmail = document.getElementById('input-7')
   const yourMessage = document.getElementById('input-9')
 
+  // gère le focus pour que envoyerButton soit focus aprés la selection de l'input yourMessage
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab' && document.hasFocus()) {
       if (yourMessage.blur()) { envoyerButton.focus() }
@@ -30,6 +31,7 @@ export function modalContact (name) {
   })
 
   envoyerButton.addEventListener('click', () => {
+    // lance la fonction de check et de confirmation pour les valeurs d'input
     verificationConfirmationMessage(firstName, lastName, yourEmail, yourMessage, messageSucces, messageErreur)
   })
 
@@ -44,6 +46,7 @@ export function modalContact (name) {
   modalQuitter.addEventListener('click', closeModal)
 }
 
+// déclare la fonction pour verifier les valeurs des inputs et les valider
 function verificationConfirmationMessage (firstName, lastName, yourEmail, yourMessage, messageSucces, messageErreur) {
   if (
     checkString(firstName.value) && checkString(lastName.value) && checkEmail(yourEmail.value) && checkString(yourMessage.value)) {

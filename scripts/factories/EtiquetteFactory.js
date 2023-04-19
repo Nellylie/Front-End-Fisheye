@@ -1,4 +1,7 @@
+
+// une classe pour fabriquer l'etiquette pour chaque photographe
 export class EtiquetteFactory {
+  // elle prend comme propriete la sommes des likes des médias et le prix par jour des photographes
   constructor (sommeLikes, price) {
     this.sommeLikes = sommeLikes
     this.price = price
@@ -15,7 +18,8 @@ export class EtiquetteFactory {
 
     etiquette.appendChild(likeTotal)
     etiquette.appendChild(prix)
-
+    // retourne l'element dom créé, l'objet Etiquette est appelé dans tri.js car elle a un lien avec les likes
+    // des médias qui sont comptées
     return (etiquette)
   }
 }

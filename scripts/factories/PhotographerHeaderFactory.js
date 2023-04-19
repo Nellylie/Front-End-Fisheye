@@ -13,8 +13,6 @@ export class PhotographerHeaderFactory {
 
   getProfilHeaderDOM () {
     const picture = `./assets/photographers/photographers-id/${this.portrait}`
-    console.log('picture', this.portrait)
-    console.log('picture', picture)
     const header = document.createElement('div')
     const imgParent = document.createElement('div')
     const img = document.createElement('img')

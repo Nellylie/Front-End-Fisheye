@@ -42,6 +42,11 @@ async function displayData (photographers, media) {
     const mediasSelection = media.filter((photographer) => photographer.photographerId === parseInt(paramId))
     recuperationMediaATrier(mediasSelection, price, name)
   }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelector('#retour').focus()
+    }
+  })
 }
 
 async function init () {

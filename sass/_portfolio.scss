@@ -50,7 +50,10 @@
     border-radius: 5px;
     cursor: pointer;
 }
-
+.contact__button:hover{
+background-color: #DB8876;
+color: black;
+}
 .modal {
     border-radius: 5px;
     background-color: #DB8876;

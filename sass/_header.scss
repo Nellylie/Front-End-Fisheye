@@ -1,54 +1,84 @@
-
+@use "utils" as u;
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
-    width:90%;
-    margin:auto;
-    border-radius: 5px;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 50px auto;
+  width: 90%;
+  border-radius: 5px;
+  @include u.desktop {
+}
+  @include u.tablet {
+    height: auto;
+  text-align: center;
+}
+  @include u.mobile {
+    height: auto;
+  text-align: center;
+}
+  
 }
 
-.header{
-    display:flex;
+.header {
+  @include u.desktop {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding:50px;
-    width:90%;
-    margin:auto;
+    padding: 50px;
+    width: 90%;
+    margin: auto;
+  }
+  @include u.tablet {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap:20px;
+    width: 90%;
+    margin: auto;
+  }
+  @include u.mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap:20px;
+    width: 90%;
+    margin: auto;
+  }
 }
 
-.header__description{
-width:auto;
-margin-left:0;
+.header__description {
+  width: auto;
+  margin-left: 0;
 }
 
-.header-description__slogan{
-    font-size: 23px;
-    color:#525252;
-    padding:20px 0;
-
+.header-description__slogan {
+  font-size: 23px;
+  color: #525252;
+  padding: 20px 0;
 }
 
-.header-description__localisation{
-    font-size: 24px;
-    color:#901C1C;
+.header-description__localisation {
+  font-size: 24px;
+  color: #901c1c;
 }
 
-.header-description__name{
-    font-weight: 400;
-    font-size: 64px;
-    color:#D3573C;
-    padding:0;
-    margin:0;
-
+.header-description__name {
+  font-weight: 400;
+  white-space: wrap;
+  font-size: 64px;
+  color: #d3573c;
+  padding: 0;
+  margin: 0;
 }
-.header__parent-image{
-    width:200px;
-    height:200px;
-    border-radius: 100%;
-    overflow: hidden;
-    margin-right:0;
-
+.header__parent-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 0;
 }

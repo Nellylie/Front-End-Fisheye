@@ -1,6 +1,8 @@
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
+  min-width: 300px;
+  width: 100%;
 }
 
 header {
@@ -9,11 +11,14 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 90px;
+  white-space: normal;
+  flex-wrap: wrap;
 }
 
 h1 {
-  color: #901C1C;
+  color: #901c1c;
   margin-right: 100px;
+  white-space: nowrap;
 }
 
 .logo {
@@ -21,11 +26,29 @@ h1 {
   margin-left: 100px;
 }
 
-.photographer-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
-  margin-top: 100px;
+@media (min-width: 1100px) {
+  .photographer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 100px;
+  }
+}
+@media (min-width: 699px) and (max-width: 1099px) {
+  .photographer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin-top: 100px;
+  }
+}
+@media (min-width: 300px) and (max-width: 700px) {
+  .photographer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    margin-top: 100px;
+  }
 }
 
 .imagePhoto {
@@ -54,14 +77,14 @@ h1 {
 }
 
 .description__name {
-  color: #D3573C;
+  color: #d3573c;
   font-size: 36px;
   font-family: "DM Sans", sans-serif;
   margin: 10px auto 5px auto;
 }
 
 .description__localisation {
-  color: #901C1C;
+  color: #901c1c;
   font-weight: 400;
   font-size: 13px;
 }
@@ -76,11 +99,30 @@ h1 {
   font-size: 9px;
 }
 
-.section__parent {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 95%;
-  margin: auto;
+@media (min-width: 1100px) {
+  .section__parent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    width: 95%;
+    margin: auto;
+  }
+}
+@media (min-width: 699px) and (max-width: 1099px) {
+  .section__parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 95%;
+    margin: auto;
+  }
+}
+@media (min-width: 300px) and (max-width: 700px) {
+  .section__parent {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 95%;
+    margin: auto;
+  }
 }
 
 .portfolio__carte {
@@ -114,19 +156,19 @@ h1 {
   width: 170px;
   height: 70px;
   border: none;
-  background-color: #901C1C;
+  background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .contact__button:hover {
-  background-color: #DB8876;
+  background-color: #db8876;
   color: black;
 }
 
 .modal {
   border-radius: 5px;
-  background-color: #DB8876;
+  background-color: #db8876;
   width: 500px;
   height: 85%;
   display: flex;
@@ -182,7 +224,7 @@ h1 {
 }
 
 #envoyer__button {
-  background-color: #901C1C;
+  background-color: #901c1c;
   color: white;
   display: flex;
   margin: auto 0;
@@ -203,7 +245,7 @@ form {
 }
 
 .form__label {
-  color: #312E2E;
+  color: #312e2e;
   font-size: 26px;
 }
 
@@ -237,8 +279,8 @@ form input[name="Your message"] {
   border-radius: 3px;
   color: white;
   overflow: hidden;
-  background-color: #901C1C;
-  background: #901C1C;
+  background-color: #901c1c;
+  background: #901c1c;
   position: relative;
 }
 
@@ -250,7 +292,7 @@ form input[name="Your message"] {
   width: 100%;
   border: none;
   box-shadow: none;
-  background-color: #901C1C;
+  background-color: #901c1c;
   background-image: none;
 }
 
@@ -306,7 +348,7 @@ form input[name="Your message"] {
 }
 
 .carte__titre {
-  color: #901C1C;
+  color: #901c1c;
   font-size: 15pt;
   font-weight: 600;
   white-space: nowrap;
@@ -318,7 +360,7 @@ form input[name="Your message"] {
   justify-content: right;
   align-items: center;
   white-space: nowrap;
-  color: #901C1C;
+  color: #901c1c;
   font-weight: 600;
 }
 
@@ -328,11 +370,11 @@ form input[name="Your message"] {
 
 .carte__like--bouton {
   margin: 5px;
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .fa-couleur {
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .ensemble__selection {
@@ -357,7 +399,7 @@ form input[name="Your message"] {
   display: flex;
   flex-direction: row;
   height: 30px;
-  background-color: #DB8876;
+  background-color: #db8876;
   font-size: 26px;
   font-weight: 600;
   color: black;
@@ -372,22 +414,59 @@ form input[name="Your message"] {
 }
 
 .photograph-header {
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   height: 300px;
-  margin: 0 100px;
+  margin: 50px auto;
   width: 90%;
-  margin: auto;
   border-radius: 5px;
 }
+@media (min-width: 699px) and (max-width: 1099px) {
+  .photograph-header {
+    height: auto;
+    text-align: center;
+  }
+}
+@media (min-width: 300px) and (max-width: 700px) {
+  .photograph-header {
+    height: auto;
+    text-align: center;
+  }
+}
 
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
-  width: 90%;
-  margin: auto;
+@media (min-width: 1100px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 699px) and (max-width: 1099px) {
+  .header {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 300px) and (max-width: 700px) {
+  .header {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    gap: 20px;
+    width: 90%;
+    margin: auto;
+  }
 }
 
 .header__description {
@@ -403,13 +482,14 @@ form input[name="Your message"] {
 
 .header-description__localisation {
   font-size: 24px;
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .header-description__name {
   font-weight: 400;
+  white-space: wrap;
   font-size: 64px;
-  color: #D3573C;
+  color: #d3573c;
   padding: 0;
   margin: 0;
 }

@@ -87,7 +87,7 @@ export class GalleryFactory {
     })
     // écouteur d'evenement sur la touche Entrée
     likeButton.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && document.hasFocus() && document.querySelector('.carte__likeButton:focus') && document.querySelector('.portfolio__carte:focus') === null) {
+      if (e.key === 'Enter' && document.hasFocus() && document.querySelector('.carte__likeButton:focus') && document.querySelector('.portfolio__carte:focus') === null && document.querySelector('.envoyer__button:focus') === null) {
         (!click ? click = true : click = false)
         if (click) {
           like.textContent = `${this.likes + 1}`; likeButton.innerHTML = "<i class='fa-solid fa-heart'></i>"

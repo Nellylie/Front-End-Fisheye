@@ -36,6 +36,13 @@ export function modalContact (name) {
   })
 
   document.addEventListener('keydown', (e) => {
+    const keyCode = e.key
+    if (keyCode === 'Enter' && document.hasFocus() && document.querySelector('#envoyer__button:focus')) {
+      verificationConfirmationMessage(firstName, lastName, yourEmail, yourMessage, messageSucces, messageErreur)
+    }
+  })
+
+  document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && document.hasFocus()) {
       document.querySelector('#header-principal').focus()
       closeModal()

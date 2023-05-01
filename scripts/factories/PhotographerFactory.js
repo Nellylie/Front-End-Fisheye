@@ -27,7 +27,7 @@ export class PhotographerFactory {
     card.setAttribute('id', this.id)
     aLien.setAttribute('class', 'imgAvatar')
     img.setAttribute('class', 'imgAvatar')
-    img.setAttribute('tabindex', '0')
+    aLien.setAttribute('tabindex', '0')
     img.setAttribute('aria-label', this.name)
     img.setAttribute('aria-description', `un photographie avec ${this.id}`)
     parentImage.setAttribute('class', 'parent-image')
@@ -48,8 +48,8 @@ export class PhotographerFactory {
     // écouteur d'évèvenement pour la touche Enter. Elle permet de transferer l'id du photographe selectionné
     // à l'url de la barre d'adresse
     document.addEventListener('keydown', (e) => {
-      const toucheCode = e.key
-      if (toucheCode === 'Enter' && document.hasFocus && document.getElementById(`${this.id}:focus`) !== null) {
+      const keyCode = e.key
+      if (keyCode === 'Enter' && document.hasFocus && document.getElementById(`${this.id}:focus`) !== null) {
         window.location.href = `./photos.html?id=${this.id}`
         window.location.reload()
       }

@@ -14,7 +14,7 @@ async function displayData (photographer) {
     const { name, id, city, country, tagline, price, portrait } = photographe
     const photographerModel = new PhotographerFactory(name, id, city, country, tagline, price, portrait)
     const profilCardDOM = photographerModel.getProfilCardDOM()
-    // ajoute dans le dom ce que la méthode retourne
+    // ajoute dans le dom la carte que la méthode retourne
     photographersSection.appendChild(profilCardDOM)
   })
 };

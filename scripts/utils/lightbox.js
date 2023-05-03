@@ -74,6 +74,7 @@ export class Lightbox {
       videoAffiche.remove()
       imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
       imageAffiche.setAttribute('aria-label', titrePhotoContenu)
+      imageAffiche.setAttribute('alt', titrePhotoContenu)
       imageAffiche.setAttribute('src', imgSrc[indexPhoto].getAttribute('src'))
       figureImage.appendChild(imageAffiche)
     } else {

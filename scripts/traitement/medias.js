@@ -23,7 +23,7 @@ async function displayData (photographers, media) {
     // si il y a une id dans la barre d'adresse, photographers.find retourne le 1er objet dont la clé du tableau
     // correspond à l'id de l'url de la barre d'adresse, cela est stocké dans photographerSelection
     const photographerSelection = photographers.find((photographer) => photographer.id === parseInt(paramId))
-    // deconstructuring sur le 1er tableau retourné : les propriétés sont récupérées dans des constantes
+    // destructuring sur le 1er tableau retourné : les propriétés sont récupérées dans des constantes
     const { name, id, city, country, tagline, price, portrait } = photographerSelection
     // puis communiquer à l'objet factory du header
     const photographerHeaderModel = new PhotographerHeaderFactory(name, id, city, country, tagline, price, portrait)

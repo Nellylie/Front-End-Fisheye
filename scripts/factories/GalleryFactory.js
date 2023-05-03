@@ -54,6 +54,7 @@ export class GalleryFactory {
       img.setAttribute('src', imagePhoto)
       img.setAttribute('aria-label', this.title)
       img.setAttribute('aria-description', `une photographie titrée : ${this.title}`)
+      img.setAttribute('alt', this.title)
       // qui est ajoutée à son parent
       figure.appendChild(img)
     }

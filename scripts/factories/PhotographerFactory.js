@@ -29,6 +29,7 @@ export class PhotographerFactory {
     img.setAttribute('class', 'imgAvatar')
     aLien.setAttribute('tabindex', '0')
     img.setAttribute('aria-label', this.name)
+    img.setAttribute('alt', this.name)
     img.setAttribute('aria-description', `un photographie avec ${this.id}`)
     parentImage.setAttribute('class', 'parent-image')
     description.setAttribute('class', 'card__description')

@@ -28,6 +28,7 @@ export class PhotographerHeaderFactory {
     header.setAttribute('class', 'header')
     imgParent.setAttribute('class', 'imgAvatar')
     img.setAttribute('class', 'imgAvatar')
+    img.setAttribute('alt', this.name)
     parentImage.setAttribute('class', 'header__parent-image')
     description.setAttribute('class', 'header__description')
     slogan.setAttribute('class', 'header-description__slogan')
